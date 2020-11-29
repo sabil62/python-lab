@@ -1,0 +1,48 @@
+Fractional_Knapsack_greedy(Array Weight, Array Value, int M)
+1. for i <- 1 to size (Value)
+2. 	calculate cost[i] <- Value[i] / Weight[i]
+3. Sort-Descending (cost)
+4. i ← 1
+5. while (i <= size(Value))
+6. 	if  Weight[i] <= M 
+7.		M ← M – W[i]
+8.		total ← total + V[i];
+9. 	if  Weight[i] > M
+10. 		i ← i+1
+
+0/1 knapsack_dynamic(n, Weight)
+ 1. for w = 0, Weight
+ 2. do V [0,w] ← 0
+ 3. for i=0, n
+ 4. do V [i, 0] ← 0  
+ 5. for w = 0, Weight
+ 6. do if (wi≤ w & vi + V [i-1, w -  wi]> V [i -1,Weight])
+ 7. then V [i, Weight] ← vi + V [i - 1, w - wi]
+ 8. else V [i, Weight] ← V [i - 1, w]
+ //-------------------------------------------------------
+
+
+//--------------------------------------------------------------
+  Knapsack_bruteforce_zero(wt, pro, cap)
+  1. n = len(p)
+  2. bit = get_combinations(n)
+  3. max_pro = 0
+  4. for b in bit:
+  5.    total_pro = 0
+  6.    for i in range(n):
+  7.        total_pro += int(b[i])*pro[i]
+  8.    total_wei = 0
+  9.    for i in range(n):
+  10.        total_wei += int(b[i])*wt[i]
+  11.   if total_wei <= cap and total_pro > max_pro:
+  12.       max_pro = total_pro
+  13.   return max_pro
+
+  get_combinations(n)
+  1. return [bin(x)[2:].rjust(n,'0') for x in range(2**n)]
+
+  //------------------------------------------------------------
+
+
+https://www.guru99.com/fractional-knapsack-problem-greedy.html
+https://www.tutorialspoint.com/program-to-implement-the-fractional-knapsack-problem-in-python

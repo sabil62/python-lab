@@ -1,0 +1,18 @@
+# 0/1 Knapsack problem
+def knapsack(capacity, weight, value, n):
+   # initial conditions where if total is 0 and capacity is 0 returns 0
+   if n == 0 or capacity == 0 :
+      return 0
+   # dont include the ones whose weight is larger than capacity, so go n-1
+   if (weight[n-1] > capacity):
+      return knapsack(capacity, weight, value, n-1)
+   # this calculates recursively , imagine tree
+   else:
+      return max(value[n-1] + knapsack(capacity-weight[n-1], weight, value, n-1),
+         knapsack(capacity, weight, value, n-1))
+# Testing 
+value = [2,4,3,5,5]
+weight = [3,4,1,2,6]
+capacity = 12
+n = len(value)
+print (knapsack(capacity, weight, value, n))
